@@ -1,0 +1,71 @@
+// dung renderSection() de dinh dang da dang giua cac trang
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
+    <title>Document</title>
+    <style>
+        #text.alert.alert-primary {
+            top: 5px;
+        }
+
+        p.alert.alert-info {
+            top: -16px;
+        }
+
+        #footer {
+            text-align: center;
+        }
+    </style>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="w-50 m-auto">
+
+        <div class="nav nav-pills">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-success w-100">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li>@Html.ActionLink("HOME PAGE ", "Home", "Home")</li>
+                        <li>@Html.ActionLink("about us", "AboutUs", "Home")</li>
+                        <li>@Html.ActionLink("contact", "Contact", "Home")</li>
+                        <li><a href="#">SERVICES</a></li>
+                        <li><a href="#">support</a></li>
+
+                </div>
+            </nav>
+        </div>
+        <div id="text">
+            <div id="title" class="alert alert-primary" role="alert">
+                <h2>Dong tieu de thu nhat</h2>
+                <h5>So luoc ve dong tieu de o tren</h5>
+                <br>
+            </div>
+            <p class="alert alert-info" role="alert">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi, porro voluptatum. Assumenda veritatis eos accusantium, ipsam delectus deleniti quam veniam nisi dolor vero. Esse optio, ab nam est non quo?</p>
+        </div>
+        @RenderSection("SubHeader",required:false)
+        <div id="content">
+            @RenderBody()
+            <br><br><br><br>
+        </div>
+        @RenderSection("SubFooter",required:false)
+        <div id="footer">
+            <a href="#">HOME </a>|<a href="#"> ABOUT US </a>|<a href="#"> SERVICES </a>|<a href="#"> DETAILS </a>|<a href="#">NEW AND EVENTS</a>
+            |<a href="#"> SUPPORTS </a>|<a href="#"> CONTACTS</a><br>
+            Copyright your company name. designed by <a href="#">Designer</a>
+        </div>
+    </div>
+</body>
+</html>
